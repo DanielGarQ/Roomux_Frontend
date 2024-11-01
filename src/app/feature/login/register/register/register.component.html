@@ -1,0 +1,39 @@
+<app-general-header></app-general-header>
+<div class="container">
+  <div class="logo-container">
+  </div>
+  <form class="form">
+    <div>
+      <input type="text" class="primer-nombre" placeholder="Primer nombre" required>
+    </div>
+    <div>
+      <input type="text" class="segundo-nombre" placeholder="Segundo nombre">
+    </div>
+    <div>
+      <input type="email" class="correo" placeholder="Correo Electronico" required>
+    </div>
+    <div class="form-group">
+      <select id="tipoDocumento" class="tipo-cedula" [(ngModel)]="tipoDocumento" name="tipoDocumento">
+        <option value="" disabled selected>Tipo</option>
+        <option value="CC">CC</option>
+        <option value="TI">TI</option>
+        <option value="CE">CE</option>
+      </select>
+    </div>
+    <div>
+      <input type="text" class="identificacion" placeholder="Identificación">
+    </div>
+    <div>
+      <input type="password" class="password" placeholder="Contraseña" required>
+    </div>
+    <div>
+      <input type="password" class="confirmar-contrasena" placeholder="Confirmar contraseña" required>
+    </div>
+    <div>
+      <button class="cancelar-boton">Cancelar</button>
+    </div>
+    <div>
+      <button class="aceptar-boton">Aceptar</button>
+    </div>
+  </form>
+</div>
