@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './reservation-list.component.html',
   styleUrl: './reservation-list.component.scss'
 })
+
 export class ReservationListComponent {
+
 
 }

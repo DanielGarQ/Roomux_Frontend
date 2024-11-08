@@ -1,0 +1,30 @@
+
+.input-group {
+  width: 600px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.btn-primary{
+  background-color: #344E41;
+  border-color: #344E41;
+}
+
+.btn-primary:focus{
+  border-color: #344E41;
+}
+
+.btn-primary:active{
+  animation: blink 0.8s;
+  -webkit-animation: blink 0.8s;
+}
+
+.btn-primary:hover{
+  opacity: 0.9;
+}
+
+@keyframes blink{
+  0% { background-color: #D9D9D9; } /* Color inicial (cuando se presiona) */
+  50% { background-color: #D9D9D9; } /* Color de parpadeo */
+  100% { background-color: #D9D9D9; }
+}

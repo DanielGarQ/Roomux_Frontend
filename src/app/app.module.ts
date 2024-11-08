@@ -17,6 +17,7 @@ import { UserHomeModule } from './feature/user-home/user-home.module';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+
   ],
   imports: [
     BrowserModule,

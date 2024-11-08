@@ -1,0 +1,29 @@
+<div class="modal fade align-items-center justify-content-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 modal-name" id="reservationModalLabel">SALA</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Fecha Inicial</label>
+          <input type="date" id="startDate" name="startDate" class="form-control" required>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="startTime">Hora de inicio</label>
+            <input id="startTime" type="time" class="form-control"  name="startTime" required>
+            <label for="startTime">Hora de fin</label>
+            <input id="startTime" type="time" class="form-control"  name="startTime" required>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Reservar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,54 @@
-.adios{
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: aquamarine;
+.search-container{
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.cards{
+  margin-top: 20px;
+  margin-left: 30px;
+  border: 2px solid black;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.card-img-top{
+  border-bottom: 2px solid black;
+  height: 100px;
+}
+
+.salas{
+  display: flex;
+  white-space: nowrap; /* Evita que los elementos salten a una nueva línea */
+  overflow-x: auto;
+  height: 250px;
+  background-color: white;
+  overflow-x: auto;
+  scrollbar-width: thin; /* Opcional para navegadores compatibles */
+  scrollbar-color:  #E9ECEF ;
+}
+
+.btn-primary{
+  background-color: #344E41;
+  border-color: #344E41;
+}
+
+label{
+  margin-left: 30px;
+  font-size: xx-large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif solid black;
+}
+
+.label1{
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.imagen-container{
+  padding: 0;
 }
