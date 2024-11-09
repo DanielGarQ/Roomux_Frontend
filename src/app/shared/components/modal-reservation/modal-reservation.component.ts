@@ -12,7 +12,6 @@ import { DatePipe } from '@angular/common';
 export class ModalReservationComponent implements OnInit {
   selectedSala: Sala | null = null;
 
-  // Modificar la estructura para incluir 'horaInicio' y 'horaFin' en 'detalleReserva'
   reservationData = {
     identificador: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
     autor: {
@@ -27,9 +26,9 @@ export class ModalReservationComponent implements OnInit {
     nombreSala: '',
     detalleReserva: [
       {
-        diaSemanal: 'NO_ASINADO',
-        horaInicio: '',  // Asegúrate de que 'horaInicio' esté presente
-        horaFin: ''      // Asegúrate de que 'horaFin' esté presente
+        diaSemanal: 'LUNES',
+        horaInicio: '',
+        horaFin: ''
       }
     ]
   };
@@ -51,42 +50,52 @@ export class ModalReservationComponent implements OnInit {
   }
 
   reservar(): void {
-    // Validar que las fechas son correctas antes de formatear
-    const fechaInicio = new Date(this.reservationData.fechaInicio);
-    const fechaFin = new Date(this.reservationData.fechaFin);
-
-    if (isNaN(fechaInicio.getTime())) {
-      console.error('Fecha no válida');
-      return; // Detener si alguna fecha es inválida
-    }
-
-    // Formatear las fechas a cadenas en formato ISO 8601
-    this.reservationData.fechaInicio = this.datePipe.transform(fechaInicio, 'yyyy-MM-dd')!;
-
-    // Validar horaInicio y horaFin en detalleReserva antes de formatear
-    const horaInicio = new Date(this.reservationData.detalleReserva[0].horaInicio);
-    const horaFin = new Date(this.reservationData.detalleReserva[0].horaFin);
-
-    if (isNaN(horaInicio.getTime()) || isNaN(horaFin.getTime())) {
-      console.error('Hora no válida');
-      return; // Detener si alguna hora es inválida
+    // Validar fecha de inicio y asignar la misma a fecha de fin
+    if (this.reservationData.fechaInicio) {
+      const fechaInicio = new Date(this.reservationData.fechaInicio);
+      if (!isNaN(fechaInicio.getTime())) {
+        const fechaFormateada = this.datePipe.transform(fechaInicio, 'yyyy-MM-dd')!;
+        this.reservationData.fechaInicio = fechaFormateada;
+        this.reservationData.fechaFin = fechaFormateada;  // Asignar el mismo valor a fechaFin
+      } else {
+        window.alert('Fecha de inicio no válida');
+        return;
+      }
     }
 
     // Formatear horaInicio y horaFin en detalleReserva
-    this.reservationData.detalleReserva[0].horaInicio = this.datePipe.transform(horaInicio, 'HH:mm:ss')!;
-    this.reservationData.detalleReserva[0].horaFin = this.datePipe.transform(horaFin, 'HH:mm:ss')!;
+    this.reservationData.detalleReserva.forEach(d => {
+      if (d.horaInicio) {
+        const horaInicio = new Date(`1970-01-01T${d.horaInicio}`);
+        if (!isNaN(horaInicio.getTime())) {
+          d.horaInicio = this.datePipe.transform(horaInicio, 'HH:mm:ss')!;
+        } else {
+          window.alert('Hora de inicio no válida');
+          return;
+        }
+      }
 
-    console.log("Datos de la reserva:", this.reservationData);
+      if (d.horaFin) {
+        const horaFin = new Date(`1970-01-01T${d.horaFin}`);
+        if (!isNaN(horaFin.getTime())) {
+          d.horaFin = this.datePipe.transform(horaFin, 'HH:mm:ss')!;
+        } else {
+          window.alert('Hora de fin no válida');
+          return;
+        }
+      }
+    });
 
     // Llamar al servicio para enviar los datos al backend
-    this.reservationService.saveReservation(this.reservationData).subscribe(response => {
-      // Aquí puedes agregar la lógica que necesites después de la respuesta
-      console.log('Reserva realizada con éxito', response);
-    }, error => {
-      // Manejar errores
-      console.error('Error al realizar la reserva', error);
-    });
+    this.reservationService.saveReservation(this.reservationData).subscribe(
+      response => {
+        const successMessage = response.message || 'Reserva realizada con éxito';
+        window.alert(successMessage);
+      },
+      error => {
+        const errorMessage = error.error?.message || 'Error al realizar la reserva';
+        window.alert(errorMessage);
+      }
+    );
   }
 }
-
-
