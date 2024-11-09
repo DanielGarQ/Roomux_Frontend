@@ -6,21 +6,27 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalReservationComponent } from './components/modal-reservation/modal-reservation.component';
+import { NgModel } from '@angular/forms';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
   declarations: [
     GeneralHeaderComponent,
-    SessionHeaderComponent
+    SessionHeaderComponent,
+    ModalReservationComponent
+
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgbDatepickerModule
 
   ],
   exports: [
     GeneralHeaderComponent,
+    ModalReservationComponent
   ]
 })
 export class SharedModule { }

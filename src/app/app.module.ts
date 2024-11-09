@@ -11,6 +11,7 @@ import { RegisterComponent } from './feature/login/register/register/register.co
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from "./core/footer/footer/footer.component";
 import { UserHomeModule } from './feature/user-home/user-home.module';
+import { ModalReservationComponent } from './shared/components/modal-reservation/modal-reservation.component';
 
 @NgModule({
   declarations: [

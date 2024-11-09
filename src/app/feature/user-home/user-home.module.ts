@@ -14,8 +14,7 @@ import { ModalReservationComponent } from '../../shared/components/modal-reserva
     UserHomeComponent,
     ReservationListComponent,
     UserReservationListComponent,
-    SearchComponent,
-    ModalReservationComponent
+    SearchComponent
 
   ],
   imports: [

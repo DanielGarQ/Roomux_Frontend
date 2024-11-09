@@ -5,66 +5,107 @@
       <app-search></app-search>
     </div>
   </div>
+
+  <!-- Salas de computo -->
   <div class="row align-items-start">
     <div class="row label1">
       <label>Salas de computo</label>
     </div>
+
     <div class="col-12 salas">
       <div class="cards-container d-flex flex-nowrap align-items-center">
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">EDC</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('EDC')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">PRODUCTIVIDAD</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('PRODUCTIVIDAD')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">REDES</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('REDES')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">MULTIMEDIA</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('MULTIMEDIA')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">COLEGIO 207</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('COLEGIO 207')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">COLEGIO 307</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('COLEGIO 307')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Laboratorios -->
   <div class="row label1">
     <label>Laboratorios</label>
   </div>
+
   <div class="row">
     <div class="col-12 salas">
       <div class="cards-container d-flex flex-nowrap align-items-center">
@@ -72,33 +113,55 @@
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">FISICA</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('FISICA')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">BIOLOGIA</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('BIOLOGIA')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
+
         <div class="card align-content-lg-center cards" style="width: 11rem; height: 11rem;">
           <img src="assets/reservation-black-small.png" class="card-img-top">
           <div class="card-body d-flex flex-column align-items-center">
             <h6 class="card-title title">QUIMICA</h6>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Reservar</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="onReservarClick('QUIMICA')"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+              Reservar
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Imagen al final -->
   <div class="row">
     <div class="col imagen-container">
       <img src="assets/home-roomux.png" class="imagen-100">
     </div>
   </div>
 </div>
+
+
+
 

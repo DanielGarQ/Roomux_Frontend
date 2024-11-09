@@ -2,36 +2,18 @@
   <div class="container-fluid d-flex reservations">
     <h2 class="tus-reservas">Tus Reservas</h2>
   </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>EDC</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
+
+  <!-- Verificamos si hay reservas -->
+  <div *ngIf="reservas.length === 0" class="no-reservas">
+    <p>No tienes reservas.</p>
   </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Productividad</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
-  </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Fisica</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
-  </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Control</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
-  </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Innova</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
-  </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Productividad</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
-  </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Redes</label>
-    <button type="submit" class="btn eliminar-button">Eliminar</button>
-  </div>
-  <div class="container-fluid d-flex reservation1">
-    <label>Telecomunicaciones</label>
+
+  <!-- Recorremos las reservas y mostramos cada una -->
+  <div *ngFor="let reserva of reservas" class="container-fluid d-flex reservation1">
+    <label>{{ reserva.nombreSala }}</label>  <!-- Muestra el nombre de la sala -->  <!-- Muestra el tipo de reserva -->
+    <span>{{ reserva.fechaInicio | date:'yyyy-MM-dd' }}</span>  <!-- Muestra las fechas -->
+
+    <!-- Botón de Eliminar -->
     <button type="submit" class="btn eliminar-button">Eliminar</button>
   </div>
 </div>

@@ -2,28 +2,31 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 modal-name" id="reservationModalLabel">SALA</h1>
+        <h1 class="modal-title fs-5 modal-name" id="reservationModalLabel">
+          {{ selectedSala?.nombre || 'SALA' }}
+        </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
           <label for="startDate" class="form-label">Fecha Inicial</label>
-          <input type="date" id="startDate" name="startDate" class="form-control" required>
+          <input type="date" id="startDate" name="startDate" class="form-control" [(ngModel)]="reservationData.fechaInicio" required>
         </div>
         <div>
           <div class="form-group">
             <label for="startTime">Hora de inicio</label>
-            <input id="startTime" type="time" class="form-control"  name="startTime" required>
-            <label for="startTime">Hora de fin</label>
-            <input id="startTime" type="time" class="form-control"  name="startTime" required>
+            <input id="startTime" type="time" class="form-control" [(ngModel)]="reservationData.detalleReserva[0].horaInicio" name="startTime" required>
+            <label for="endTime">Hora de fin</label>
+            <input id="endTime" type="time" class="form-control" [(ngModel)]="reservationData.detalleReserva[0].horaFin" name="endTime" required>
           </div>
-
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Reservar</button>
+        <button type="button" class="btn btn-primary" (click)="reservar()">Reservar</button>
       </div>
     </div>
   </div>
 </div>
+
+
