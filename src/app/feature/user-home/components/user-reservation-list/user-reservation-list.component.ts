@@ -12,7 +12,7 @@ import { Reserva, RespuestaReservas } from 'app/interfaces/models'; // Importa l
 export class UserReservationListComponent implements OnInit {
   reservas: Reserva[] = []; // Usamos la interfaz Reserva
   email: string = 'alejandro.gomez8332@uco.net.co'; // Correo electrónico del usuario
-  private apiUrl = 'http://localhost:8080/api/v1/reserva/autor'; // URL de la API
+  private apiUrl = 'http://10.100.64.217:8080/api/v1/reserva/autor'; // URL de la API
 
   constructor(private http: HttpClient) {}
 

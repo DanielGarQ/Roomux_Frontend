@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ReservationService {
 
-  private apiUrl = 'http://localhost:8080/api/v1/reserva';
+  private apiUrl = 'http://10.100.64.217:8080/api/v1/reserva';
 
   private selectedSalaSubject = new BehaviorSubject<Sala | null>(null);
   selectedSala$ = this.selectedSalaSubject.asObservable();

@@ -12,7 +12,7 @@ import { of } from 'rxjs';
 export class LoginComponent {
   correoElectronico: string = '';
   password: string = '';
-  loginUrl = 'http://localhost:8080/api/v1/login';
+  loginUrl = 'http://10.100.64.217:8080/api/v1/login';
 
   constructor(private http: HttpClient, private router: Router) {}
 

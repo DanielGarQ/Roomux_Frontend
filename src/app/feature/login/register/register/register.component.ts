@@ -22,7 +22,7 @@ export class RegisterComponent {
       return;
     }
 
-    const url = 'http://localhost:8080/api/v1/register';
+    const url = 'http://10.100.64.217:8080/api/v1/register';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = {
       nombre: this.nombre,
