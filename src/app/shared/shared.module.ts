@@ -15,7 +15,8 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     GeneralHeaderComponent,
     SessionHeaderComponent,
-    ModalReservationComponent
+    ModalReservationComponent,
+    SearchComponent
 
   ],
   imports: [
@@ -26,7 +27,8 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   exports: [
     GeneralHeaderComponent,
-    ModalReservationComponent
+    ModalReservationComponent,
+    SearchComponent,
   ]
 })
 export class SharedModule { }

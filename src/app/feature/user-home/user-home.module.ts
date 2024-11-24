@@ -14,14 +14,13 @@ import { ModalReservationComponent } from '../../shared/components/modal-reserva
     UserHomeComponent,
     ReservationListComponent,
     UserReservationListComponent,
-    SearchComponent
 
   ],
   imports: [
     CommonModule,
     UserHomeRoutingModule,
-    SharedModule,
     NgbModalModule,
+    SharedModule
 
   ]
 })

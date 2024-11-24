@@ -10,12 +10,13 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]  // Proveedor para usar DatePipe
 })
 export class ModalReservationComponent implements OnInit {
+  today: string = '';
   selectedSala: Sala | null = null;
 
   reservationData = {
     identificador: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
     autor: {
-      correoElectronico: 'alejandro.gomez8332@uco.net.co',
+      correoElectronico: localStorage.getItem('userEmail'),
       password: ''
     },
     fechaInicio: '',
@@ -39,6 +40,10 @@ export class ModalReservationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0];
+
     // Nos suscribimos al servicio para obtener la sala seleccionada
     this.reservationService.selectedSala$.subscribe(sala => {
       this.selectedSala = sala;
@@ -51,12 +56,19 @@ export class ModalReservationComponent implements OnInit {
 
   reservar(): void {
     // Validar fecha de inicio y asignar la misma a fecha de fin
+
+    if (this.reservationData.fechaInicio < this.today) {
+      window.alert('La fecha de inicio no puede ser anterior a la fecha actual.');
+      return;
+    }
+
     if (this.reservationData.fechaInicio) {
       const fechaInicio = new Date(this.reservationData.fechaInicio);
       if (!isNaN(fechaInicio.getTime())) {
-        const fechaFormateada = this.datePipe.transform(fechaInicio, 'yyyy-MM-dd')!;
-        this.reservationData.fechaInicio = fechaFormateada;
-        this.reservationData.fechaFin = fechaFormateada;  // Asignar el mismo valor a fechaFin
+        // Asegurarnos de que la fecha esté en UTC y convertirla a formato ISO
+        const fechaUTC = new Date(Date.UTC(fechaInicio.getUTCFullYear(), fechaInicio.getUTCMonth(), fechaInicio.getUTCDate()));
+        this.reservationData.fechaInicio = fechaUTC.toISOString();  // Enviar en formato ISO con UTC
+        this.reservationData.fechaFin = fechaUTC.toISOString();     // Asignar el mismo valor a fechaFin
       } else {
         window.alert('Fecha de inicio no válida');
         return;
@@ -99,3 +111,5 @@ export class ModalReservationComponent implements OnInit {
     );
   }
 }
+
+

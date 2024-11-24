@@ -11,7 +11,6 @@ describe('ModalReservationComponent', () => {
       imports: [ModalReservationComponent]
     })
     .compileComponents();
-    
     fixture = TestBed.createComponent(ModalReservationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

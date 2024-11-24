@@ -2,7 +2,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Reserva, RespuestaReservas } from 'app/interfaces/models'; // Importa las interfaces
+import { Reserva, RespuestaReservas } from 'app/interfaces/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-reservation-list',
@@ -11,13 +12,21 @@ import { Reserva, RespuestaReservas } from 'app/interfaces/models'; // Importa l
 })
 export class UserReservationListComponent implements OnInit {
   reservas: Reserva[] = []; // Usamos la interfaz Reserva
-  email: string = 'alejandro.gomez8332@uco.net.co'; // Correo electrónico del usuario
-  private apiUrl = 'http://10.100.64.217:8080/api/v1/reserva/autor'; // URL de la API
+  email: string | null = null;
+  private apiUrl = 'http://localhost:8080/api/v1/reserva/autor'; // URL de la API
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.obtenerReservasPorUsuario(this.email);
+    this.email = localStorage.getItem("userEmail");
+
+    if (this.email) {
+      this.obtenerReservasPorUsuario(this.email);
+    }
+    else {
+      alert("Por favor, inicie sesión");
+      this.router.navigate(["/user-reservations"]);
+    }
   }
 
   obtenerReservasPorUsuario(email: string): void {

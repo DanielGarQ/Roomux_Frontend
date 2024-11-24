@@ -1,15 +1,29 @@
-<div class="input-group mb-3 ">
+<div class="input-group mb-3">
   <input
     type="text"
     class="form-control"
     placeholder="Buscar..."
     aria-label="Buscar"
-    (keyup.enter)="onSearch()">
-  <button
-    class="btn btn-primary"
-    type="button"
-    (click)="onSearch()">
+    [(ngModel)]="searchQuery"
+    (keyup.enter)="onSearch()"
+  />
+  <button class="btn btn-primary" type="button" (click)="onSearch()">
     Buscar
   </button>
 </div>
+
+<!-- Mostrar los resultados -->
+<div *ngIf="filteredSalas.length; else noResults">
+  <ul class="list-group mt-3">
+    <li class="list-group-item" *ngFor="let sala of filteredSalas">
+      {{ sala.nombre }}
+    </li>
+  </ul>
+</div>
+
+<!-- Mensaje si no hay resultados -->
+<ng-template #noResults>
+
+</ng-template>
+
 
