@@ -103,6 +103,8 @@ export class ModalReservationComponent implements OnInit {
       response => {
         const successMessage = response.message || 'Reserva realizada con éxito';
         window.alert(successMessage);
+        this.reservationService.notifyReservationsUpdated();
+
       },
       error => {
         const errorMessage = error.error?.message || 'Error al realizar la reserva';
