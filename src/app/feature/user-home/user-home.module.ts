@@ -5,23 +5,22 @@ import { UserHomeRoutingModule } from "./user-home-routing.module";
 import { SharedModule } from '../../shared/shared.module';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 import { UserReservationListComponent } from './components/user-reservation-list/user-reservation-list.component';
-import { SearchComponent } from '../../shared/components/search/search.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalReservationComponent } from '../../shared/components/modal-reservation/modal-reservation.component';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
 @NgModule({
   declarations: [
     UserHomeComponent,
     ReservationListComponent,
     UserReservationListComponent,
-
   ],
   imports: [
     CommonModule,
     UserHomeRoutingModule,
     NgbModalModule,
-    SharedModule
-
+    SharedModule,
+    FormsModule // Añadir FormsModule aquí
   ]
 })
 export class UserHomeModule { }

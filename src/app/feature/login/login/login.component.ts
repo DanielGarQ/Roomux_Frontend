@@ -25,18 +25,19 @@ export class LoginComponent {
     this.http.post<{ message: string }>(this.loginUrl, loginData).pipe(
       catchError(error => {
         console.error('Error en el login:', error);
-        alert('Error en el login. Verifique sus credenciales.');
+        // Verifica si hay un mensaje de error en la respuesta y lo muestra
+        const errorMessage = error.error?.message || 'Error en el login. Verifique sus credenciales.';
+        alert(`Login fallido: ${errorMessage}`);
         return of(null);
       })
     ).subscribe(response => {
       if (response) {
-
+        // Guarda el correo en localStorage
         localStorage.setItem("userEmail", this.correoElectronico);
 
+        // Muestra el mensaje de éxito
         alert(`Login exitoso: ${response.message}`);
         this.router.navigate(['/user-home']); // Redirige a user-home si el login es exitoso
-      } else {
-        alert('Login fallido. Verifique sus credenciales.');
       }
     });
   }
