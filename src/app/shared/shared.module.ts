@@ -29,7 +29,6 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     GeneralHeaderComponent,
     ModalReservationComponent,
     SearchComponent,
-    SessionHeaderComponent
   ]
 })
 export class SharedModule { }

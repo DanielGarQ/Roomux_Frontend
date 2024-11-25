@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Reserva, RespuestaReservas } from 'app/interfaces/models';
 import { Router } from '@angular/router';
-import { ReservationService } from 'app/service/reservation-service';
-
 
 @Component({
   selector: 'app-user-reservation-list',
@@ -15,19 +13,13 @@ export class UserReservationListComponent implements OnInit {
   email: string | null = null;
   private apiUrlConsulta = 'http://localhost:8080/api/v1/reserva/autor'; // URL base de la API
   private apiEliminar = 'http://localhost:8080/api/v1/reserva';
-
-  constructor(private http: HttpClient, private router: Router, private reservationService: ReservationService) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.email = localStorage.getItem('userEmail');
 
     if (this.email) {
       this.obtenerReservasPorUsuario(this.email);
-
-      this.reservationService.reservationsUpdated$.subscribe(() => {
-        this.obtenerReservasPorUsuario(this.email!); // Recarga las reservas al recibir la notificación
-      });
-
     } else {
       alert('Por favor, inicie sesión');
       this.router.navigate(['/user-reservations']);
@@ -66,5 +58,4 @@ export class UserReservationListComponent implements OnInit {
       }
     );
   }
-
 }

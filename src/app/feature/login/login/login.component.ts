@@ -45,12 +45,4 @@ export class LoginComponent {
   onRegister(): void {
     this.router.navigate(['/register']);
   }
-
-  onLogout(): void {
-    localStorage.removeItem('userEmail');
-    alert('Sesión cerrada correctamente.');
-    this.router.navigate(['/login']);
-  }
-
-
 }
